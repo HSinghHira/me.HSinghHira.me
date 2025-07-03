@@ -6,6 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  base: 'https://git.hsinghhira.me/me.HSinghHira.me/',
   themeConfig: {
     nav: [],
     sidebar: [],
