@@ -2,11 +2,10 @@
   <!-- Desktop: Always visible navigation -->
   <nav v-if="isDesktop" class="flex flex-col px-6 pb-4 w-full">
     <ul class="space-y-1.5">
-      <li v-for="item in processedMenuItems" :key="item.label">
-        <a
-          :href="item.url"
-          @click.prevent="item.command ? item.command($event) : null"
-          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] transition-all duration-300 ease-out"
+      <li v-for="item in menuItems" :key="item.label">
+        <button
+          @click="handleNavClick(item.url)"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
           :class="[
             router.route.path === item.url 
               ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
@@ -23,7 +22,6 @@
             ]"
           >
             <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
-
           </div>
           
           <!-- Label -->
@@ -44,7 +42,7 @@
               router.route.path !== item.url ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
             ]"
           ></div>
-        </a>
+        </button>
       </li>
     </ul>
   </nav>
@@ -67,11 +65,10 @@
           @click.stop
         >
           <ul class="space-y-1.5">
-            <li v-for="item in processedMenuItems" :key="item.label">
-              <a
-                :href="item.url"
-                @click.prevent="item.command ? item.command($event) : null"
-                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] transition-all duration-300 ease-out"
+            <li v-for="item in menuItems" :key="item.label">
+              <button
+                @click="handleNavClick(item.url)"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
                 :class="[
                   router.route.path === item.url 
                     ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
@@ -88,7 +85,6 @@
                   ]"
                 >
                   <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
-
                 </div>
                 
                 <!-- Label -->
@@ -109,7 +105,7 @@
                     router.route.path !== item.url ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
                   ]"
                 ></div>
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -129,6 +125,11 @@ const props = defineProps({
 
 const router = useRouter(); 
 const isMenuVisible = ref(false);
+
+const handleNavClick = (url) => {
+  router.go(url);
+  hideMenu();
+};
 
 const toggle = (event) => {
   if (!props.isDesktop) {
@@ -166,16 +167,6 @@ defineExpose({
   toggle,
   hideMenu
 });
-
-// Create menu items with navigation logic
-const processedMenuItems = menuItems.map(item => ({
-  ...item,
-  command: (event) => {
-    router.go(item.url);
-    hideMenu();
-  },
-  icon: item.icon
-}));
 </script>
 
 <style scoped>
