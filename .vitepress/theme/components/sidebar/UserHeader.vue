@@ -1,7 +1,7 @@
 <template>
-  <div class="flex md:flex-row flex-col lg:flex-col items-start md:items-start lg:items-center p-6">
+  <div class="flex md:flex-row flex-col lg:flex-col items-start md:items-start lg:items-center px-6 pt-6">
     <img
-      class="md:mr-4 lg:mr-0 mb-4 md:mb-0 lg:mb-4 p-1 rounded-full ring-[var(--vp-c-divider)] ring-2 w-[120px]"
+      class="md:mr-4 lg:mr-0 md:mb-0 lg:mb-4 p-1 rounded-full ring-[var(--vp-c-divider)] ring-2 w-[150px]"
       src="https://github.com/hsinghhira.png?size=200"
       alt="Harman Singh Hira"
     />

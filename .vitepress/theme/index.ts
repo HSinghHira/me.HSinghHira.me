@@ -9,6 +9,24 @@ import './tailwind.css'
 import PrimeVue from 'primevue/config';
 import Menu from 'primevue/menu'; 
 
+import { OhVueIcon, addIcons } from 'oh-vue-icons'
+import {
+  RiUserLine,
+  FaBriefcase,
+  FaGraduationCap,
+  FaFolderOpen,
+  FaEdit,
+  FaEnvelope
+} from 'oh-vue-icons/icons'
+
+addIcons(
+  RiUserLine,
+  FaBriefcase,
+  FaGraduationCap,
+  FaFolderOpen,
+  FaEdit,
+  FaEnvelope
+)
 
 export default {
   extends: DefaultTheme,
@@ -24,7 +42,7 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     app.use(PrimeVue); // Register PrimeVue
-    app.component('Menu', Menu); // Register the Menu component globally
-    // app.component('Button', Button); // Register other components you might use
+    app.component('Menu', Menu);
+    app.component("VIcon", OhVueIcon)
   }
 } satisfies Theme

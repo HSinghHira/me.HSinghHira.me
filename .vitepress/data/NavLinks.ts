@@ -1,42 +1,32 @@
-import {
-  UserIcon,
-  BriefcaseIcon,
-  AcademicCapIcon,
-  FolderIcon,
-  PencilSquareIcon,
-  EnvelopeIcon
-} from '@heroicons/vue/24/outline';
-
-// Define your menu items for PrimeVue
 export const menuItems = [
   {
     label: 'Introduction',
-    icon: UserIcon, 
+    icon: 'ri-user-line',
     url: '/'
   },
   {
     label: 'Pro Work Experience',
-    icon: BriefcaseIcon,
+    icon: 'fa-briefcase',
     url: '/pages/work/'
   },
   {
     label: 'Learning & Education',
-    icon: AcademicCapIcon,
+    icon: 'fa-graduation-cap',
     url: '/pages/edu/'
   },
   {
     label: 'Projects',
-    icon: FolderIcon,
+    icon: 'fa-folder-open',
     url: '/pages/projects/'
   },
   {
     label: 'Blog',
-    icon: PencilSquareIcon,
+    icon: 'fa-edit',
     url: '/pages/blog/'
   },
   {
     label: 'Contact',
-    icon: EnvelopeIcon,
+    icon: 'fa-envelope',
     url: '/pages/contact/'
   }
-];
+]

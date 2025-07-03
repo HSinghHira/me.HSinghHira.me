@@ -15,6 +15,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
+import { OhVueIcon } from 'oh-vue-icons';
 import UserHeader from './UserHeader.vue';
 import NavLinks from './NavLinks.vue';
 import UserInfo from './UserInfo.vue';

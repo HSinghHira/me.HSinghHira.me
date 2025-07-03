@@ -12,7 +12,6 @@
     "vue": "^3.3.4"
   },
   "dependencies": {
-    "@heroicons/vue": "^2.2.0",
     "@primeuix/themes": "^1.1.2",
     "oh-vue-icons": "^1.0.0-rc3",
     "preline": "^3.1.0",

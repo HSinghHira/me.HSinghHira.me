@@ -22,7 +22,8 @@
                 : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
             ]"
           >
-            <component :is="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+            <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+
           </div>
           
           <!-- Label -->
@@ -86,7 +87,8 @@
                       : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
                   ]"
                 >
-                  <component :is="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                  <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+
                 </div>
                 
                 <!-- Label -->
