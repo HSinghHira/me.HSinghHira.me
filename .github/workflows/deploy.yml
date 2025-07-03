@@ -37,9 +37,14 @@ jobs:
         run: |
           rm -rf node_modules package-lock.json
           npm install
+          npm install vitepress --save-dev
+        continue-on-error: false
 
       - name: Build with VitePress
-        run: npx vitepress build
+        run: |
+          npx vitepress build
+          ls -la .vitepress/dist
+        continue-on-error: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -53,6 +58,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
