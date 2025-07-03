@@ -11,7 +11,7 @@ import {
 export const menuItems = [
   {
     label: 'Introduction',
-    icon: UserIcon, // Use Heroicon component
+    icon: UserIcon, 
     url: '/'
   },
   {
