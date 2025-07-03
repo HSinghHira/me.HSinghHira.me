@@ -17,26 +17,26 @@ export const menuItems = [
   {
     label: 'Pro Work Experience',
     icon: BriefcaseIcon,
-    url: '/work/'
+    url: '/pages/work/'
   },
   {
     label: 'Learning & Education',
     icon: AcademicCapIcon,
-    url: '/education/'
+    url: '/pages/edu/'
   },
   {
     label: 'Projects',
     icon: FolderIcon,
-    url: '/projects/'
+    url: '/pages/projects/'
   },
   {
     label: 'Blog',
     icon: PencilSquareIcon,
-    url: '/blog/'
+    url: '/pages/blog/'
   },
   {
     label: 'Contact',
     icon: EnvelopeIcon,
-    url: '/contact/'
+    url: '/pages/contact/'
   }
 ];
