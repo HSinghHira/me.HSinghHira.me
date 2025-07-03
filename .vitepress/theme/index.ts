@@ -4,7 +4,6 @@ import DefaultTheme from 'vitepress/theme'
 import Sidebar from './components/sidebar/sidebar.vue'
 import './style.css'
 import './tailwind.css'
-import 'preline/dist/preline.js'
 
 // PrimeVue Imports
 import PrimeVue from 'primevue/config';
