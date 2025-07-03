@@ -6,7 +6,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  base: 'https://git.hsinghhira.me/me.HSinghHira.me/',
+  base: '/me.HSinghHira.me/', // Changed from full URL to relative path
   themeConfig: {
     nav: [],
     sidebar: [],

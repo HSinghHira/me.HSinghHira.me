@@ -2,31 +2,31 @@ export const menuItems = [
   {
     label: 'Introduction',
     icon: 'ri-user-line',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/'
+    url: '/' // Changed to relative path
   },
   {
     label: 'Pro Work Experience',
     icon: 'fa-briefcase',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/pages/work/'
+    url: '/pages/work/' // Changed to relative path
   },
   {
     label: 'Learning & Education',
     icon: 'fa-graduation-cap',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/pages/edu/'
+    url: '/pages/edu/' // Changed to relative path
   },
   {
     label: 'Projects',
     icon: 'fa-folder-open',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/pages/projects/'
+    url: '/pages/projects/' // Changed to relative path
   },
   {
     label: 'Blog',
     icon: 'fa-edit',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/pages/blog/'
+    url: '/pages/blog/' // Changed to relative path
   },
   {
     label: 'Contact',
     icon: 'fa-envelope',
-    url: 'https://git.hsinghhira.me/me.HSinghHira.me/pages/contact/'
+    url: '/pages/contact/' // Changed to relative path
   }
 ]
