@@ -8,8 +8,8 @@
 
     <UserInfo />
 
-    <Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
-
+    <!-- Changed @click="toggle" to @click="handleToggleNav" -->
+    <Button type="button" icon="pi pi-ellipsis-v" @click="handleToggleNav" aria-haspopup="true" aria-controls="overlay_menu" />
   </aside>
 </template>
 
@@ -28,19 +28,22 @@ const userHeaderRef = ref(null);
 const navLinksRef = ref(null);
 
 const handleToggleNav = (event) => {
-  // On desktop, we don't need a popup menu, NavLinks is always visible
+  console.log('handleToggleNav called, isDesktop:', isDesktop.value);
   if (isDesktop.value) {
     toggleNav.value = !toggleNav.value;
   } else {
-    // On mobile, trigger the NavLinks component's toggle method
     if (navLinksRef.value) {
+      console.log('Calling navLinksRef.toggle');
       navLinksRef.value.toggle(event);
+    } else {
+      console.error('navLinksRef is null');
     }
   }
 };
 
 const checkSize = () => {
   isDesktop.value = window.innerWidth >= 1024;
+  console.log('isDesktop updated:', isDesktop.value);
 };
 
 onMounted(() => {

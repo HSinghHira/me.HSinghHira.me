@@ -1,13 +1,14 @@
 <template>
   <!-- Desktop: Always visible navigation -->
   <nav v-if="isDesktop" class="flex flex-col px-6 pb-4 w-full">
+    {{ console.log('Rendering desktop nav, isDesktop:', isDesktop) }}
     <ul class="space-y-1.5">
-      <li v-for="item in menuItems" :key="item.label">
-        <button
-          @click="handleNavClick(item.url)"
+      <li>
+        <a
+          href="/"
           class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
           :class="[
-            router.route.path === item.url 
+            router.route.path === '/' 
               ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
               : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
           ]"
@@ -16,22 +17,22 @@
           <div 
             class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
             :class="[
-              router.route.path === item.url 
+              router.route.path === '/' 
                 ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
                 : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
             ]"
           >
-            <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+            <VIcon name="ri-user-line" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
           </div>
           
           <!-- Label -->
           <span class="flex-1 text-sm leading-5 transition-colors duration-300">
-            {{ item.label }}
+            Introduction
           </span>
           
           <!-- Active Indicator -->
           <div 
-            v-if="router.route.path === item.url"
+            v-if="router.route.path === '/'"
             class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
           ></div>
           
@@ -39,10 +40,220 @@
           <div 
             class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
             :class="[
-              router.route.path !== item.url ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+              router.route.path !== '/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
             ]"
           ></div>
-        </button>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pages/work/"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+          :class="[
+            router.route.path === '/pages/work/' 
+              ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+              : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+          ]"
+        >
+          <!-- Icon Container -->
+          <div 
+            class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+            :class="[
+              router.route.path === '/pages/work/' 
+                ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+            ]"
+          >
+            <VIcon name="fa-briefcase" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          
+          <!-- Label -->
+          <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+            Pro Work Experience
+          </span>
+          
+          <!-- Active Indicator -->
+          <div 
+            v-if="router.route.path === '/pages/work/'"
+            class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+          ></div>
+          
+          <!-- Hover Glow Effect -->
+          <div 
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+            :class="[
+              router.route.path !== '/pages/work/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+            ]"
+          ></div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pages/edu/"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+          :class="[
+            router.route.path === '/pages/edu/' 
+              ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+              : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+          ]"
+        >
+          <!-- Icon Container -->
+          <div 
+            class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+            :class="[
+              router.route.path === '/pages/edu/' 
+                ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+            ]"
+          >
+            <VIcon name="fa-graduation-cap" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          
+          <!-- Label -->
+          <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+            Learning & Education
+          </span>
+          
+          <!-- Active Indicator -->
+          <div 
+            v-if="router.route.path === '/pages/edu/'"
+            class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+          ></div>
+          
+          <!-- Hover Glow Effect -->
+          <div 
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+            :class="[
+              router.route.path !== '/pages/edu/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+            ]"
+          ></div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pages/projects/"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+          :class="[
+            router.route.path === '/pages/projects/' 
+              ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+              : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+          ]"
+        >
+          <!-- Icon Container -->
+          <div 
+            class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+            :class="[
+              router.route.path === '/pages/projects/' 
+                ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+            ]"
+          >
+            <VIcon name="fa-folder-open" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          
+          <!-- Label -->
+          <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+            Projects
+          </span>
+          
+          <!-- Active Indicator -->
+          <div 
+            v-if="router.route.path === '/pages/projects/'"
+            class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+          ></div>
+          
+          <!-- Hover Glow Effect -->
+          <div 
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+            :class="[
+              router.route.path !== '/pages/projects/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+            ]"
+          ></div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pages/blog/"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+          :class="[
+            router.route.path === '/pages/blog/' 
+              ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+              : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+          ]"
+        >
+          <!-- Icon Container -->
+          <div 
+            class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+            :class="[
+              router.route.path === '/pages/blog/' 
+                ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+            ]"
+          >
+            <VIcon name="fa-edit" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          
+          <!-- Label -->
+          <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+            Blog
+          </span>
+          
+          <!-- Active Indicator -->
+          <div 
+            v-if="router.route.path === '/pages/blog/'"
+            class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+          ></div>
+          
+          <!-- Hover Glow Effect -->
+          <div 
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+            :class="[
+              router.route.path !== '/pages/blog/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+            ]"
+          ></div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pages/contact/"
+          class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+          :class="[
+            router.route.path === '/pages/contact/' 
+              ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+              : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+          ]"
+        >
+          <!-- Icon Container -->
+          <div 
+            class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+            :class="[
+              router.route.path === '/pages/contact/' 
+                ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+            ]"
+          >
+            <VIcon name="fa-envelope" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+          </div>
+          
+          <!-- Label -->
+          <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+            Contact
+          </span>
+          
+          <!-- Active Indicator -->
+          <div 
+            v-if="router.route.path === '/pages/contact/'"
+            class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+          ></div>
+          
+          <!-- Hover Glow Effect -->
+          <div 
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+            :class="[
+              router.route.path !== '/pages/contact/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+            ]"
+          ></div>
+        </a>
       </li>
     </ul>
   </nav>
@@ -65,12 +276,12 @@
           @click.stop
         >
           <ul class="space-y-1.5">
-            <li v-for="item in menuItems" :key="item.label">
-              <button
-                @click="handleNavClick(item.url)"
+            <li>
+              <a
+                href="/"
                 class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
                 :class="[
-                  router.route.path === item.url 
+                  router.route.path === '/' 
                     ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
                     : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
                 ]"
@@ -79,22 +290,22 @@
                 <div 
                   class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
                   :class="[
-                    router.route.path === item.url 
+                    router.route.path === '/' 
                       ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
                       : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
                   ]"
                 >
-                  <VIcon :name="item.icon" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                  <VIcon name="ri-user-line" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 
                 <!-- Label -->
                 <span class="flex-1 text-sm leading-5 transition-colors duration-300">
-                  {{ item.label }}
+                  Introduction
                 </span>
                 
                 <!-- Active Indicator -->
                 <div 
-                  v-if="router.route.path === item.url"
+                  v-if="router.route.path === '/'"
                   class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
                 ></div>
                 
@@ -102,10 +313,220 @@
                 <div 
                   class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
                   :class="[
-                    router.route.path !== item.url ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                    router.route.path !== '/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
                   ]"
                 ></div>
-              </button>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/pages/work/"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+                :class="[
+                  router.route.path === '/pages/work/' 
+                    ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+                    : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+                ]"
+              >
+                <!-- Icon Container -->
+                <div 
+                  class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+                  :class="[
+                    router.route.path === '/pages/work/' 
+                      ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                      : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+                  ]"
+                >
+                  <VIcon name="fa-briefcase" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <!-- Label -->
+                <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+                  Pro Work Experience
+                </span>
+                
+                <!-- Active Indicator -->
+                <div 
+                  v-if="router.route.path === '/pages/work/'"
+                  class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+                ></div>
+                
+                <!-- Hover Glow Effect -->
+                <div 
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+                  :class="[
+                    router.route.path !== '/pages/work/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                  ]"
+                ></div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/pages/edu/"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+                :class="[
+                  router.route.path === '/pages/edu/' 
+                    ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+                    : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+                ]"
+              >
+                <!-- Icon Container -->
+                <div 
+                  class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+                  :class="[
+                    router.route.path === '/pages/edu/' 
+                      ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                      : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+                  ]"
+                >
+                  <VIcon name="fa-graduation-cap" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <!-- Label -->
+                <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+                  Learning & Education
+                </span>
+                
+                <!-- Active Indicator -->
+                <div 
+                  v-if="router.route.path === '/pages/edu/'"
+                  class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+                ></div>
+                
+                <!-- Hover Glow Effect -->
+                <div 
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+                  :class="[
+                    router.route.path !== '/pages/edu/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                  ]"
+                ></div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/pages/projects/"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+                :class="[
+                  router.route.path === '/pages/projects/' 
+                    ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+                    : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+                ]"
+              >
+                <!-- Icon Container -->
+                <div 
+                  class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+                  :class="[
+                    router.route.path === '/pages/projects/' 
+                      ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                      : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+                  ]"
+                >
+                  <VIcon name="fa-folder-open" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <!-- Label -->
+                <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+                  Projects
+                </span>
+                
+                <!-- Active Indicator -->
+                <div 
+                  v-if="router.route.path === '/pages/projects/'"
+                  class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+                ></div>
+                
+                <!-- Hover Glow Effect -->
+                <div 
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+                  :class="[
+                    router.route.path !== '/pages/projects/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                  ]"
+                ></div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/pages/blog/"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+                :class="[
+                  router.route.path === '/pages/blog/' 
+                    ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+                    : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+                ]"
+              >
+                <!-- Icon Container -->
+                <div 
+                  class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+                  :class="[
+                    router.route.path === '/pages/blog/' 
+                      ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                      : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+                  ]"
+                >
+                  <VIcon name="fa-edit" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <!-- Label -->
+                <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+                  Blog
+                </span>
+                
+                <!-- Active Indicator -->
+                <div 
+                  v-if="router.route.path === '/pages/blog/'"
+                  class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+                ></div>
+                
+                <!-- Hover Glow Effect -->
+                <div 
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+                  :class="[
+                    router.route.path !== '/pages/blog/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                  ]"
+                ></div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/pages/contact/"
+                class="group relative flex items-center gap-3 mx-1 my-0.5 p-3 border border-transparent rounded-xl w-full min-h-[48px] overflow-hidden font-medium text-[var(--vp-c-text)] text-left transition-all duration-300 ease-out"
+                :class="[
+                  router.route.path === '/pages/contact/' 
+                    ? 'bg-gradient-to-r from-[var(--vp-c-brand-light)] to-[var(--vp-c-brand-lighter)] border-[var(--vp-c-brand-light)] text-[var(--vp-c-brand-dark)] font-semibold shadow-lg shadow-[var(--vp-c-brand-light)]/20' 
+                    : 'hover:bg-[var(--vp-c-bg-alt)] hover:border-[var(--vp-c-divider)] hover:shadow-md hover:-translate-y-0.5'
+                ]"
+              >
+                <!-- Icon Container -->
+                <div 
+                  class="flex flex-shrink-0 justify-center items-center rounded-lg w-8 h-8 transition-all duration-300 ease-out"
+                  :class="[
+                    router.route.path === '/pages/contact/' 
+                      ? 'bg-[var(--vp-c-brand)] text-white shadow-md' 
+                      : 'bg-[var(--vp-c-bg-soft)] text-[var(--vp-c-text-2)] group-hover:bg-[var(--vp-c-brand-light)] group-hover:text-[var(--vp-c-brand)] group-hover:scale-110'
+                  ]"
+                >
+                  <VIcon name="fa-envelope" class="w-4.5 h-4.5 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <!-- Label -->
+                <span class="flex-1 text-sm leading-5 transition-colors duration-300">
+                  Contact
+                </span>
+                
+                <!-- Active Indicator -->
+                <div 
+                  v-if="router.route.path === '/pages/contact/'"
+                  class="bg-[var(--vp-c-brand)] rounded-full w-1.5 h-1.5 animate-pulse"
+                ></div>
+                
+                <!-- Hover Glow Effect -->
+                <div 
+                  class="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300 pointer-events-none"
+                  :class="[
+                    router.route.path !== '/pages/contact/' ? 'bg-gradient-to-r from-transparent via-[var(--vp-c-brand-light)]/5 to-transparent' : ''
+                  ]"
+                ></div>
+              </a>
             </li>
           </ul>
         </div>
@@ -118,57 +539,22 @@
 import { ref, watch } from 'vue';
 import { useRouter } from 'vitepress';
 
-// Menu items defined directly in the component
-const menuItems = [
-  {
-    label: 'Introduction',
-    icon: 'ri-user-line',
-    url: '/'
-  },
-  {
-    label: 'Pro Work Experience',
-    icon: 'fa-briefcase',
-    url: '/pages/work/'
-  },
-  {
-    label: 'Learning & Education',
-    icon: 'fa-graduation-cap',
-    url: 'pages/edu/'
-  },
-  {
-    label: 'Projects',
-    icon: 'fa-folder-open',
-    url: '/pages/projects/'
-  },
-  {
-    label: 'Blog',
-    icon: 'fa-edit',
-    url: '/pages/blog/'
-  },
-  {
-    label: 'Contact',
-    icon: 'fa-envelope',
-    url: '/pages/contact/'
-  }
-];
-
+const router = useRouter();
 const props = defineProps({
   isDesktop: Boolean
 });
 
-const router = useRouter(); 
 const isMenuVisible = ref(false);
 
-const handleNavClick = (url) => {
-  router.go(url);
-  hideMenu();
+const hideMenu = () => {
+  isMenuVisible.value = false;
+  document.body.style.overflow = '';
 };
 
 const toggle = (event) => {
   if (!props.isDesktop) {
     isMenuVisible.value = !isMenuVisible.value;
-    
-    // Prevent body scroll when menu is open
+    console.log('isMenuVisible:', isMenuVisible.value);
     if (isMenuVisible.value) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -176,18 +562,6 @@ const toggle = (event) => {
     }
   }
 };
-
-const hideMenu = () => {
-  isMenuVisible.value = false;
-  document.body.style.overflow = '';
-};
-
-// Watch for route changes to hide the menu if it's open on mobile
-watch(router.route, () => {
-  if (!props.isDesktop) {
-    hideMenu();
-  }
-});
 
 // Clean up body overflow when switching to desktop
 watch(() => props.isDesktop, (newVal) => {
